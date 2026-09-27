@@ -1,0 +1,509 @@
+/* =====================================================================
+   YOUR STYLESHEET
+   =====================================================================
+   This file is empty on purpose. You are going to fill it yourself,
+   two lines at a time, across twenty-five steps.
+
+   Keep this file and portfolio.html open side by side:
+       editor on the left, browser on the right.
+
+   The pattern, every single time:
+
+       TYPE IT   ->   SAVE   ->   REFRESH   ->   LOOK
+
+   NOTHING CHANGING ON SCREEN?
+     1. Did you save?
+     2. Did you refresh?   Ctrl+Shift+R   (Cmd+Shift+R on a Mac)
+     3. Is the class spelled EXACTLY as it is in portfolio.html?
+     4. Is there a semicolon at the end of every line inside { }?
+
+   BEHIND? Every step is numbered on the slides and in the solution
+   file. Find your last step, copy forward, carry on. No drama.
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   PART 1 — WHAT CSS IS            steps 1-2
+   --------------------------------------------------------------------- */
+
+:root{
+   --bg: #0b0f14;
+   --bg-alt: #11161d;
+   --panel: #151b23;
+   --border: #232b35;
+   --text: #e7ecf1;
+   --text-dim: #93a1b0;
+   --accent: #7fffd4;
+   --accent-dim: #4fd8ae;
+}
+
+
+/* ---------------------------------------------------------------------
+   PART 2 — SELECTORS              steps 3-7
+   --------------------------------------------------------------------- */
+*{
+   font-family: Arial, Helvetica, sans-serif;
+   box-sizing: border-box;
+}
+
+/*basic page styling*/
+body{
+   background-color: var(--bg);
+   color: var(--text);
+   font-size: 16px;
+   line-height: 1.6;
+   margin: 0;
+}
+
+p{
+   color: var(--text-dim);
+}
+
+.site-nav, .hero, .about, .education, .stats, .projects,
+.stack, .contact, .site-footer{
+   max-width: 900px;
+   margin: 0 auto;
+   padding: 20px;
+}
+
+.nav-link{
+   color: var(--text);
+   text-decoration: none;
+   display: inline-block;
+   padding: 10px 14px;
+   background-color: transparent;
+   border-radius: 6px;
+   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1{
+   color: var(--text);
+   background-color: transparent;
+}
+
+.project-card{
+   border: 1px solid var(--border);
+   background-color: var(--panel);
+   border-radius: 8px;
+   padding: 24px;
+   margin-bottom: 20px;
+}
+
+
+/* ---------------------------------------------------------------------
+   PART 3 — COLOURS AND BORDERS    steps 8-11
+   --------------------------------------------------------------------- */
+
+.site-nav{
+   position: sticky;
+   top: 0;
+   z-index: 10;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   max-width: none;
+   border-bottom: 1px solid var(--border);
+   background-color: rgba(11, 15, 20, 0.9);
+   backdrop-filter: blur(6px);
+}
+
+.nav-logo{
+   color: var(--text);
+   font-weight: bold;
+   font-size: 20px;
+   text-decoration: none;
+}
+
+.nav-dot{
+   color: var(--accent);
+}
+
+.nav-link--cta{
+   border: 1px solid var(--accent);
+   color: var(--accent);
+}
+
+.hero{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 40px;
+   padding-top: 64px;
+   padding-bottom: 64px;
+}
+
+.hero-eyebrow{
+   color: var(--accent);
+   font-size: 13px;
+   font-weight: bold;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+}
+
+.hero-name{
+   color: var(--accent);
+}
+
+
+/* ------------------------------ BREAK ------------------------------- */
+
+.hero-avatar{
+   width: 160px;
+   height: 160px;
+   border-radius: 50%;
+   background: linear-gradient(135deg, var(--accent), #2c1bbf);
+   color: #0b0f14;
+   font-weight: bold;
+   font-size: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+   overflow: hidden;
+}
+
+.hero-avatar img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 50%;
+}
+
+.btn{
+   text-decoration: none;
+   border-radius: 6px;
+   font-weight: bold;
+   transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn--primary{
+   background-color: var(--accent);
+   color: #0b0f14;
+   border: 1px solid var(--accent);
+}
+
+.btn--ghost{
+   background-color: transparent;
+   color: var(--text);
+   border: 1px solid var(--border);
+}
+
+.btn:hover{
+   transform: translateY(-2px);
+   opacity: 0.9;
+}
+
+
+/* ---------------------------------------------------------------------
+   PART 4 — SPACE AND SIZE         steps 12-14
+   --------------------------------------------------------------------- */
+
+.hero-title{
+   font-size: 40px;
+   line-height: 1.2;
+   margin: 12px 0;
+}
+
+.hero-tagline{
+   max-width: 46ch;
+   margin-bottom: 28px;
+}
+
+.hero-actions{
+   display: flex;
+   gap: 14px;
+}
+
+.btn{
+   padding: 12px 22px;
+   display: inline-block;
+}
+
+.stats{
+   display: flex;
+   justify-content: space-around;
+   border-top: 1px solid var(--border);
+   border-bottom: 1px solid var(--border);
+   background-color: var(--bg-alt);
+}
+
+.stat{
+   display: inline-block;
+   width: 33%;
+   text-align: center;
+   padding: 20px 0;
+}
+
+.stat-value{
+   display: block;
+   font-size: 32px;
+   font-weight: bold;
+   color: var(--accent);
+}
+
+.stat-label{
+   display: block;
+   color: var(--text-dim);
+   font-size: 13px;
+   margin-top: 6px;
+}
+
+.section-kicker{
+   color: var(--accent);
+   font-size: 13px;
+   font-weight: bold;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   margin: 0;
+}
+
+.section-title{
+   font-size: 28px;
+   margin-top: 6px;
+}
+
+.about-text{
+   max-width: 65ch;
+   color: var(--text);
+}
+
+.education-list{
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.education-item{
+   border-left: 2px solid var(--accent);
+   padding-left: 20px;
+}
+
+.education-degree{
+   margin: 0;
+   font-size: 18px;
+   color: var(--text);
+}
+
+.education-school{
+   margin: 4px 0 0;
+   color: var(--text-dim);
+}
+
+.education-date{
+   margin: 4px 0 0;
+   font-size: 13px;
+   color: var(--accent-dim);
+}
+
+#about, #work, #stack, #contact{
+   scroll-margin-top: 90px;
+}
+
+.project-grid{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+   gap: 20px;
+}
+
+.project-card{
+   margin-bottom: 0;
+   transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.project-card--featured{
+   border-color: var(--accent);
+   grid-column: span 2;
+}
+
+
+/* ---------------------------------------------------------------------
+   PART 5 — TEXT, FONTS AND LINKS  steps 15-20
+   --------------------------------------------------------------------- */
+.nav-link:hover {
+   color: var(--accent);
+   background-color: rgba(255,255,255,0.05);
+}
+.project-card:hover{
+   border: 1px solid var(--accent);
+   transform: translateY(-4px);
+}
+.project-link:hover{
+   color: var(--accent-dim);
+}
+.contact-link:hover{
+   color: var(--accent);
+}
+
+.site-footer{
+   text-align: center;
+   color: var(--text-dim);
+   border-top: 1px solid var(--border);
+   font-size: 13px;
+}
+
+.contact{
+   border-style: solid;
+   border-left: none;
+   border-right: none;
+   border-top: solid 1px var(--border);
+   background-color: var(--bg-alt);
+   text-align: center;
+}
+
+.stack{
+   border-style: solid;
+   border-left: none;
+   border-right: none;
+   border-bottom: solid 1px var(--border);
+   background-color: var(--bg-alt);
+}
+
+.project-title{
+   margin-top: 0;
+   color: var(--text);
+}
+
+.project-desc{
+   font-size: 14px;
+}
+
+.project-link{
+   color: var(--accent);
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 14px;
+}
+
+.project-links{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   margin-top: 12px;
+}
+
+.project-links-toggle summary{
+   cursor: pointer;
+   list-style: none;
+}
+
+.project-links-toggle summary::-webkit-details-marker{
+   display: none;
+}
+
+.project-links .project-link{
+   border: 1px solid var(--border);
+   background-color: var(--bg);
+   padding: 6px 14px;
+   border-radius: 20px;
+   font-size: 13px;
+   transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.project-links .project-link:hover{
+   border-color: var(--accent);
+   background-color: var(--panel);
+}
+
+.contact-title{
+   font-size: 26px;
+}
+
+.contact-text{
+   max-width: 50ch;
+   margin: 0 auto 20px;
+}
+
+.contact-links{
+   list-style: none;
+   padding: 0;
+   display: flex;
+   justify-content: center;
+   gap: 24px;
+}
+
+.contact-link{
+   color: var(--text);
+   text-decoration: none;
+   font-weight: bold;
+}
+
+
+/* ---------------------------------------------------------------------
+   PART 6 — COMBINATORS AND HOVER  steps 21-23
+   --------------------------------------------------------------------- */
+
+.stack-list{
+   list-style: none;
+   padding: 0;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.stack-item{
+   display: inline-block;
+   padding: 8px 16px;
+   border: 1px solid var(--border);
+   border-radius: 20px;
+   font-size: 14px;
+   background-color: var(--panel);
+}
+
+.tag-list{
+   list-style: none;
+   padding: 0;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px;
+   margin: 14px 0;
+}
+
+.tag{
+   display: inline-block;
+   padding: 4px 10px;
+   font-size: 12px;
+   border-radius: 4px;
+   background-color: var(--bg);
+   color: var(--accent);
+   border: 1px solid var(--border);
+}
+
+
+/* ---------------------------------------------------------------------
+   PART 7 — UNITS AND SPECIFICITY  steps 24-25
+   --------------------------------------------------------------------- */
+
+.section-head{
+   margin-bottom: 2rem;
+}
+
+@media (max-width: 640px){
+   .hero{
+      flex-direction: column-reverse;
+      text-align: center;
+      padding-top: 2.5rem;
+   }
+   .hero-actions{
+      justify-content: center;
+   }
+   .stats{
+      flex-wrap: wrap;
+   }
+   .stat{
+      width: 50%;
+   }
+   .project-card--featured{
+      grid-column: span 1;
+   }
+}
+
+
+/* ---------------------------------------------------------------------
+   FINAL CHALLENGE — make it yours
+
+   Start by changing every colour word above. Then pick a direction:
+       BOLD   /   SOFT   /   DARK   /   CLASSIC
+   --------------------------------------------------------------------- */

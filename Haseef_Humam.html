@@ -24,10 +24,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name — Portfolio</title>
+  <title>Haseef Humam - Portfolio</title>
 
   <!-- CHECKPOINT 1: this line is how CSS gets in. -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon: shows your logo in the browser tab instead of the default globe icon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
 
@@ -36,7 +39,7 @@
        Concepts: class selectors, :hover, display: inline-block
        ================================================================ -->
   <header class="site-nav">
-    <a class="nav-logo" href="#top"><img src="logo.svg" alt="Logo" style="height: 32px; vertical-align: middle;"></a>
+    <a class="nav-logo" href="#top"><img src="logo.svg" alt="Logo" style="height: 54px; vertical-align: middle;"></a>
 
     <nav class="nav-links">
       <a class="nav-link" href="#about">About</a>
@@ -56,9 +59,42 @@
       <p class="hero-eyebrow">Available for internships</p>
 
       <h1 class="hero-title">
-        Hello, I'm <span class="hero-name">Haseef</span>.
-        I build things for the web.
+        <span id="hero-typed"></span>
       </h1>
+      <script>
+      (function(){
+         var el = document.getElementById('hero-typed');
+         var segments = [
+            {text: "Hello, I'm ", cls: null},
+            {text: "Haseef", cls: "hero-name"},
+            {text: ". I build things for the web.", cls: null}
+         ];
+         var full = segments.map(function(s){ return s.text; }).join('');
+         var i = 0;
+         function tick(){
+            i++;
+            var remaining = i;
+            var html = '';
+            for (var j = 0; j < segments.length; j++){
+               var seg = segments[j];
+               if (remaining <= 0) break;
+               var take = Math.min(remaining, seg.text.length);
+               var chunk = seg.text.slice(0, take);
+               html += seg.cls ? '<span class="' + seg.cls + '">' + chunk + '</span>' : chunk;
+               remaining -= take;
+            }
+            el.innerHTML = html + '<span class="typing-cursor">|</span>';
+            if (i < full.length){
+               setTimeout(tick, 85);
+            } else {
+               setTimeout(function(){
+                  el.innerHTML = html;
+               }, 600);
+            }
+         }
+         tick();
+      })();
+      </script>
 
       <p class="hero-tagline">
         First-year computer science student. I like clean interfaces,
@@ -157,9 +193,9 @@
           notified in real time to bring the items out.
         </p>
         <ul class="tag-list">
-          <li class="tag">FastAPI</li>
-          <li class="tag">PostgreSQL</li>
-          <li class="tag">Next.js</li>
+          <li class="tag"><a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener">FastAPI</a></li>
+          <li class="tag"><a href="https://www.postgresql.org/" target="_blank" rel="noopener">PostgreSQL</a></li>
+          <li class="tag"><a href="https://nextjs.org/" target="_blank" rel="noopener">Next.js</a></li>
         </ul>
         <details class="project-links-toggle">
           <summary class="project-link">View project</summary>
@@ -181,9 +217,9 @@
           my teammates.
         </p>
         <ul class="tag-list">
-          <li class="tag">React</li>
-          <li class="tag">TypeScript</li>
-          <li class="tag">Vite</li>
+          <li class="tag"><a href="https://react.dev/" target="_blank" rel="noopener">React</a></li>
+          <li class="tag"><a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a></li>
+          <li class="tag"><a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a></li>
         </ul>
         <details class="project-links-toggle">
           <summary class="project-link">View project</summary>
@@ -200,10 +236,10 @@
           Written in a two-hour workshop. Styled entirely by me.
         </p>
         <ul class="tag-list">
-          <li class="tag">HTML</li>
-          <li class="tag">CSS</li>
+          <li class="tag"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">HTML</a></li>
+          <li class="tag"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">CSS</a></li>
         </ul>
-        <a class="project-link" href="#">View project</a>
+        <a class="project-link" href="https://github.com/Haseef88/My-Portfolio" target="_blank" rel="noopener">View project</a>
       </article>
 
     </div>
@@ -216,13 +252,13 @@
   <section class="stack" id="stack">
     <h2 class="section-title">Tools I reach for</h2>
     <ul class="stack-list">
-      <li class="stack-item">HTML</li>
-      <li class="stack-item">CSS</li>
-      <li class="stack-item">JavaScript</li>
-      <li class="stack-item">React</li>
-      <li class="stack-item">Node</li>
-      <li class="stack-item">Git</li>
-      <li class="stack-item">Figma</li>
+      <li class="stack-item"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">HTML</a></li>
+      <li class="stack-item"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">CSS</a></li>
+      <li class="stack-item"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">JavaScript</a></li>
+      <li class="stack-item"><a href="https://react.dev/" target="_blank" rel="noopener">React</a></li>
+      <li class="stack-item"><a href="https://nodejs.org/" target="_blank" rel="noopener">Node</a></li>
+      <li class="stack-item"><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+      <li class="stack-item"><a href="https://www.figma.com/" target="_blank" rel="noopener">Figma</a></li>
       <li class="stack-item">SQL</li>
     </ul>
   </section>
@@ -239,8 +275,8 @@
     </p>
     <ul class="contact-links">
       <li><a class="contact-link" href="mailto:mhmhaseef88@gmai.com">Email</a></li>
-      <li><a class="contact-link" href="#">GitHub</a></li>
-      <li><a class="contact-link" href="#">LinkedIn</a></li>
+      <li><a class="contact-link" href="https://github.com/Haseef88" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a class="contact-link" href="https://www.linkedin.com/in/haseef-humam" target="_blank" rel="noopener">LinkedIn</a></li>
     </ul>
   </section>
   </main>
